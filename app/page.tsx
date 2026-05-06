@@ -1,5 +1,33 @@
 
+'use client';
+import { useState } from 'react';
+
 export default function Home() {
+  const [form, setForm] = useState({ nama: '', whatsapp: '', email: '', pesan: '' });
+  const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setForm({ nama: '', whatsapp: '', email: '', pesan: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+    setLoading(false);
+  };
+
   const programs = [
     { title: "Islamic Character Building", desc: "Pembinaan mentalitas kerja berbasis nilai Islam: integritas, amanah, disiplin, dan tanggung jawab." },
     { title: "Tahsin Al-Quran", desc: "Standarisasi bacaan Al-Quran bagi karyawan sesuai makharijul huruf dan tajwid." },
@@ -15,12 +43,8 @@ export default function Home() {
   ];
 
   const pengajar = [
-    "Ust. Muhammad Ilham",
-    "Ust. Auliya Bil Allafa",
-    "Ust. Ryan Alfatih",
-    "Ustadz Agung Gunawan",
-    "Ustadzah Ai",
-    "Ustadzah Nadia",
+    "Ust. Muhammad Ilham", "Ust. Auliya Bil Allafa", "Ust. Ryan Alfatih",
+    "Ustadz Agung Gunawan", "Ustadzah Ai", "Ustadzah Nadia",
   ];
 
   const klien = [
@@ -47,19 +71,13 @@ export default function Home() {
       <section className="bg-blue-900 text-white text-center py-32 px-8">
         <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-widest">Masjid Pendidikan Shalahuddin</p>
         <h1 className="text-6xl font-bold mb-6">Majelis Perkantoran</h1>
-        <p className="text-2xl text-yellow-300 mb-6 italic">
-          Menguatkan Nilai, Menjaga Profesionalisme di Dunia Kerja
-        </p>
+        <p className="text-2xl text-yellow-300 mb-6 italic">Menguatkan Nilai, Menjaga Profesionalisme di Dunia Kerja</p>
         <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
           Membangun karakter islami dan meningkatkan kualitas spiritual karyawan tanpa mengganggu produktivitas kerja.
         </p>
         <div className="mt-10 flex gap-4 justify-center">
-          <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">
-            Daftarkan Kantor Anda
-          </a>
-          <a href="#program" className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-900 transition text-lg">
-            Lihat Program
-          </a>
+          <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">Daftarkan Kantor Anda</a>
+          <a href="#program" className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-900 transition text-lg">Lihat Program</a>
         </div>
       </section>
 
@@ -68,10 +86,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Pengenalan</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-8"></div>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Perusahaan modern membutuhkan lebih dari sekadar kinerja. Dibutuhkan SDM yang
-            berintegritas dan memiliki kematangan emosional. Majelis Perkantoran menawarkan
-            solusi pembinaan yang aplikatif dan relevan dengan dunia kerja, mengubah momentum
-            spiritual menjadi pendorong etos kerja dan loyalitas tim yang lebih solid.
+            Perusahaan modern membutuhkan lebih dari sekadar kinerja. Dibutuhkan SDM yang berintegritas dan memiliki kematangan emosional. Majelis Perkantoran menawarkan solusi pembinaan yang aplikatif dan relevan dengan dunia kerja, mengubah momentum spiritual menjadi pendorong etos kerja dan loyalitas tim yang lebih solid.
           </p>
         </div>
       </section>
@@ -121,9 +136,7 @@ export default function Home() {
             {pengajar.map((name, i) => (
               <div key={i} className="text-center">
                 <div className="w-20 h-20 rounded-full bg-blue-900 mx-auto mb-3 flex items-center justify-center">
-                  <span className="text-yellow-400 font-bold text-2xl">
-                    {name.split(" ").pop()?.charAt(0)}
-                  </span>
+                  <span className="text-yellow-400 font-bold text-2xl">{name.split(" ").pop()?.charAt(0)}</span>
                 </div>
                 <p className="text-sm font-medium text-gray-700 leading-tight">{name}</p>
               </div>
@@ -147,23 +160,68 @@ export default function Home() {
       </section>
 
       <section id="kontak" className="bg-blue-900 text-white py-20 px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Segera Daftarkan Kantor Anda!</h2>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Segera Daftarkan Kantor Anda!</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-6"></div>
-          <p className="text-gray-300 mb-10 text-lg">Hubungi kami untuk informasi dan kerja sama program</p>
-          <div className="flex flex-col gap-4 text-lg">
-            <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
-              <span className="text-yellow-400 text-2xl">📸</span>
-              <span>@masjidpendidikanshalahuddin</span>
+          <p className="text-center text-gray-300 mb-12 text-lg">Hubungi kami atau isi form di bawah ini</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="flex flex-col gap-4">
+              <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
+                <span className="text-yellow-400 text-2xl">📸</span>
+                <span>@masjidpendidikanshalahuddin</span>
+              </div>
+              <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
+                <span className="text-yellow-400 text-2xl">📞</span>
+                <span>+62 851-1727-1453</span>
+              </div>
+              <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
+                <span className="text-yellow-400 text-2xl">📍</span>
+                <span>Jl. Garuda, Kel. Sindangpalay, Kec. Cibeureum, Kota Sukabumi</span>
+              </div>
             </div>
-            <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
-              <span className="text-yellow-400 text-2xl">📞</span>
-              <span>+62 851-1727-1453</span>
-            </div>
-            <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
-              <span className="text-yellow-400 text-2xl">📍</span>
-              <span>Jl. Garuda, Kel. Sindangpalay, Kec. Cibeureum, Kota Sukabumi</span>
-            </div>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Nama Perusahaan / Anda"
+                value={form.nama}
+                onChange={e => setForm({...form, nama: e.target.value})}
+                required
+                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <input
+                type="text"
+                placeholder="Nomor Whatsap"
+                value={form.whatsapp}
+                onChange={e => setForm({...form, whatsapp: e.target.value})}
+                required
+                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={e => setForm({...form, email: e.target.value})}
+                required
+                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <textarea
+                placeholder="Pesan / Pertanyaan"
+                value={form.pesan}
+                onChange={e => setForm({...form, pesan: e.target.value})}
+                required
+                rows={4}
+                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400 resize-none"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-yellow-400 text-blue-900 font-bold py-3 rounded-xl hover:bg-yellow-300 transition disabled:opacity-50"
+              >
+                {loading ? 'Mengirim...' : 'Kirim Pesan'}
+              </button>
+              {status === 'success' && <p className="text-green-400 text-center">Pesan berhasil dikirim!</p>}
+              {status === 'error' && <p className="text-red-400 text-center">Gagal mengirim, coba lagi.</p>}
+            </form>
           </div>
         </div>
       </section>
@@ -175,4 +233,4 @@ export default function Home() {
 
     </main>
   );
-} 
+}
