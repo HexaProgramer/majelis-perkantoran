@@ -136,7 +136,7 @@ export default function Home() {
             {pengajar.map((name, i) => (
               <div key={i} className="text-center">
                 <img
-                src={`/pengajar/${name.split(" ").pop()?.toLowerCase()}.jpg`}
+                src={`/pengajar/${name.split(" ").pop()}.jpg`}
                 alt={name}
                 className="w-20 h-20 rounded-full mx-auto mb-3 object-cover"
                 />
