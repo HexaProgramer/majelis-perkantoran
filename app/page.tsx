@@ -135,9 +135,11 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {pengajar.map((name, i) => (
               <div key={i} className="text-center">
-                <div className="w-20 h-20 rounded-full bg-blue-900 mx-auto mb-3 flex items-center justify-center">
-                  <span className="text-yellow-400 font-bold text-2xl">{name.split(" ").pop()?.charAt(0)}</span>
-                </div>
+                <img
+                src={`/pengajar/${name.split(" ").pop()?.toLowerCase()}.jpg`}
+                alt={name}
+                className="w-20 h-20 rounded-full mx-auto mb-3 object-cover"
+                />
                 <p className="text-sm font-medium text-gray-700 leading-tight">{name}</p>
               </div>
             ))}
