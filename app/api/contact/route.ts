@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try {
     const result = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'hanimafoundation@gmail.com',
+      to: 'muhammad200901@gmail.com',
       subject: `Pesan dari ${nama} - Majelis Perkantoran`,
       html: `
         <h2>Pesan Baru dari Website Majelis Perkantoran</h2>
