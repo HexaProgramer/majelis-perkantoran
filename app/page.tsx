@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pengajar" className="py-20 px-8 bg-white">
+      <section id="pengajar" className="py-20 px-8x bg-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Profil Pengajar</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
