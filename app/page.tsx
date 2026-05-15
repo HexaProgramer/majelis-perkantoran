@@ -253,12 +253,12 @@ export default function Home() {
                   +62 851-1727-1453
                 </a>
               </div>
-              <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
-              <span className="text-yellow-400 text-2xl">📍</span>
-              <a href="https://maps.app.goo.gl/2nGQozgM67Xxo7B37" target="_blank" className="hover:text-yellow-400 transition">
+              <div className="bg-blue-800 rounded-xl p-4 flex items-start gap-4">
+              <span className="text-yellow-400 text-2xl flex-shrink-0">📍</span>
+              <a href="https://maps.app.goo.gl/2nGQozgM67Xxo7B37" target="_blank" className="hover:text-yellow-400 transition text-left">
               Jl. Garuda, Kel. Sindangpalay, Kec. Cibeureum, Kota Sukabumi
             </a>
-              </div>
+            </div>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
