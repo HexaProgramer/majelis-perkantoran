@@ -80,6 +80,33 @@ export default function Home() {
           <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">Daftarkan Kantor Anda</a>
           <a href="#program" className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-900 transition text-lg">Lihat Program</a>
         </div>
+        <motion.div 
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-blue-700 pt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          {[
+            { angka: "12+", label: "Mitra Perusahaan" },
+            { angka: "6", label: "Pengajar Ahli" },
+            { angka: "4", label: "Program Unggulan" },
+            { angka: "100+", label: "Peserta Terbina" },
+          ].map((item, i) => (
+            <motion.div 
+              key={i}
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-5xl font-bold text-yellow-400 drop-shadow-lg">{item.angka}</p>
+              <div className="w-8 h-0.5 bg-yellow-400 mx-auto my-2"></div>
+              <p className="text-gray-300 text-sm uppercase tracking-wider">{item.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       <section id="tentang" className="py-20 px-8 bg-white">
