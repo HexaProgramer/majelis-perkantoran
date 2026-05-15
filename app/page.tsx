@@ -170,15 +170,28 @@ export default function Home() {
             <div className="flex flex-col gap-4">
               <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
                 <span className="text-yellow-400 text-2xl">📸</span>
-                <span>@masjidpendidikanshalahuddin</span>
+              <a
+              href="https://instagram.com/masjidpendidikanshalahuddin" 
+              target="_blank"
+              className="hover:text-yellow-400 transition"
+              >
+                @masjidpendidikanshalahuddin
+              </a>
               </div>
               <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
                 <span className="text-yellow-400 text-2xl">📞</span>
-                <span>+62 851-1727-1453</span>
+                <a
+                href="tel:+6285117271453"
+                className="hover:text-yellow-400 transition"
+                >
+                  +62 851-1727-1453
+                </a>
               </div>
               <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
-                <span className="text-yellow-400 text-2xl">📍</span>
-                <span>Jl. Garuda, Kel. Sindangpalay, Kec. Cibeureum, Kota Sukabumi</span>
+              <span className="text-yellow-400 text-2xl">📍</span>
+              <a href="https://maps.app.goo.gl/2nGQozgM67Xxo7B37" target="_blank" className="hover:text-yellow-400 transition">
+              Jl. Garuda, Kel. Sindangpalay, Kec. Cibeureum, Kota Sukabumi
+            </a>
               </div>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
