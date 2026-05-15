@@ -85,10 +85,10 @@ export default function Home() {
       <section id="tentang" className="py-20 px-8 bg-white">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Pengenalan</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-8"></div>
@@ -101,10 +101,10 @@ export default function Home() {
       <section id="program" className="py-20 px-8 bg-gray-50">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Spesifikasi Program</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-12"></div>
@@ -125,10 +125,10 @@ export default function Home() {
       <section id="keunggulan" className="py-20 px-8 bg-blue-900 text-white">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-center mb-4">Keunggulan Program</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-12"></div>
@@ -149,10 +149,10 @@ export default function Home() {
       <section id="pengajar" className="py-20 px-8x bg-white">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Profil Pengajar</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
@@ -175,10 +175,10 @@ export default function Home() {
       <section id="portofolio" className="py-20 px-8 bg-gray-50">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Portofolio Klien</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-12"></div>
@@ -195,10 +195,10 @@ export default function Home() {
       <section id="kontak" className="bg-blue-900 text-white py-20 px-8">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
           >
           <h2 className="text-3xl font-bold text-center mb-4">Segera Daftarkan Kantor Anda!</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-6"></div>
