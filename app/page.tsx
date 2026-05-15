@@ -57,7 +57,10 @@ export default function Home() {
     <main className="min-h-screen bg-white">
 
       <nav className="bg-blue-900 text-white px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
-        <div className="font-bold text-lg tracking-wide">Majelis Perkantoran</div>
+        <div className="flex items-center gap-3">
+  <img src="/logo.png" alt="Logo Majelis Perkantoran" className="w-10 h-10 object-contain" />
+  <span className="font-bold text-lg tracking-wide">Majelis Perkantoran</span>
+</div>
         <div className="flex gap-6 text-sm font-medium">
           <a href="#tentang" className="hover:text-yellow-400 transition">Tentang</a>
           <a href="#program" className="hover:text-yellow-400 transition">Program</a>
