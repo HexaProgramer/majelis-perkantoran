@@ -1,12 +1,12 @@
-
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   const [form, setForm] = useState({ nama: '', whatsapp: '', email: '', pesan: '' });
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,19 +55,51 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
 
-      <nav className="bg-blue-900 text-white px-8 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
-        <div className="font-bold text-lg tracking-wide" style={{fontFamily: 'var(--font-playfair)'}}>Majelis Perkantoran</div>
-        <div className="flex gap-6 text-sm font-medium">
-          <a href="#tentang" className="hover:text-yellow-400 transition">Tentang</a>
-          <a href="#program" className="hover:text-yellow-400 transition">Program</a>
-          <a href="#keunggulan" className="hover:text-yellow-400 transition">Keunggulan</a>
-          <a href="#pengajar" className="hover:text-yellow-400 transition">Pengajar</a>
-          <a href="#portofolio" className="hover:text-yellow-400 transition">Portofolio</a>
-          <a href="#kontak" className="hover:text-yellow-400 transition">Kontak</a>
-        </div>
-      </nav>
+<nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
+  <div className="font-bold text-lg tracking-wide" style={{fontFamily: 'var(--font-playfair)'}}>
+    Majelis Perkantoran
+  </div>
+
+  <div className="hidden md:flex gap-6 text-sm font-medium">
+    <a href="#tentang" className="hover:text-yellow-400 transition">Tentang</a>
+    <a href="#program" className="hover:text-yellow-400 transition">Program</a>
+    <a href="#keunggulan" className="hover:text-yellow-400 transition">Keunggulan</a>
+    <a href="#pengajar" className="hover:text-yellow-400 transition">Pengajar</a>
+    <a href="#portofolio" className="hover:text-yellow-400 transition">Portofolio</a>
+    <a href="#kontak" className="hover:text-yellow-400 transition">Kontak</a>
+  </div>
+
+  <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)}>
+    <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+    <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
+    <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+  </button>
+
+  <AnimatePresence>
+    {menuOpen && (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+        className="absolute top-16 left-0 right-0 bg-blue-900 flex flex-col items-center gap-4 py-6 md:hidden shadow-lg"
+      >
+          {['tentang', 'program', 'keunggulan', 'pengajar', 'portofolio', 'kontak'].map((item) => (
+          
+            <a key={item}
+            href={`#${item}`}
+            className="capitalize hover:text-yellow-400 transition text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            {item}
+          </a>
+        ))} 
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
 
       <section className="bg-blue-900 text-white text-center py-32 px-8">
         <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-widest">Masjid Pendidikan Shalahuddin</p>
