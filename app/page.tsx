@@ -7,6 +7,7 @@ export default function Home() {
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [carouselPaused, setCarouselPaused] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -231,21 +232,92 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="portofolio" className="py-20 px-8 bg-gray-50">
-        <motion.div 
-        className="max-w-4xl mx-auto text-center"
+<section id="portofolio" className="py-20 bg-gray-50 overflow-hidden">
+        <motion.div
+          className="max-w-5xl mx-auto px-8"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
-          >
+        >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Portofolio Klien</h2>
-          <div className="w-16 h-1 bg-yellow-400 mx-auto mb-12"></div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
+          <p className="text-center text-gray-500 mb-12">Kepercayaan mereka adalah motivasi terbesar kami</p>
+        </motion.div>
+
+        {/* Carousel */}
+        <div
+          className="relative"
+          onMouseEnter={() => setCarouselPaused(true)}
+          onMouseLeave={() => setCarouselPaused(false)}
+        >
+          <motion.div
+            className="flex gap-8"
+            animate={{ x: carouselPaused ? undefined : ["0%", "-50%"] }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{ width: "max-content" }}
+          >
+            {[...Array(2)].flatMap((_, arrI) => [
+              { nama: "Arafa Hijab", file: "arafa-hijab" },
+              { nama: "FKPQ Kec. Cisaat", file: "fkpq-cisaat" },
+              { nama: "Gudang Steak", file: "gudang-steak" },
+              { nama: "PT. Kujang Marinas Utama", file: "kujang-marinas" },
+              { nama: "SDIT Annadwah", file: "sdit-annadwah" },
+              { nama: "Sono Coffee Grup", file: "sono-coffee" },
+              { nama: "Sukabumi Football Academy", file: "sukabumi-football" },
+              { nama: "Toko Maheer", file: "toko-maheer" },
+            ].map((item, i) => (
+              <motion.div
+                key={`${arrI}-${i}`}
+                className="relative flex-shrink-0 w-96 h-64 rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                <img
+                  src={`/kegiatan/${item.file}.png`}
+                  alt={item.nama}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+                  <div>
+                    <p className="text-white font-bold text-lg">{item.nama}</p>
+                    <p className="text-yellow-400 text-sm mt-1">Mitra Majelis Perkantoran</p>
+                  </div>
+                </div>
+              </motion.div>
+            )))}
+          </motion.div>
+        </div>
+
+{/* Grid nama klien */}
+        <motion.div
+          className="max-w-5xl mx-auto px-8 mt-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-center text-blue-900 font-bold text-xl mb-8">Dipercaya oleh 12+ Perusahaan</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {klien.map((nama, i) => (
-              <div key={i} className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition">
+              <motion.div
+                key={i}
+                className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100 hover:shadow-md hover:border-yellow-400 hover:bg-blue-50 transition-all duration-300 cursor-default"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <span className="text-yellow-400 font-bold text-xs">{i + 1}</span>
+                </div>
                 <p className="font-medium text-blue-900 text-sm">{nama}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
