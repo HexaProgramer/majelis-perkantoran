@@ -165,45 +165,102 @@ export default function Home() {
   </motion.div>
 </section>
 
-      <section id="tentang" className="py-20 px-8 bg-white bg-pattern-light">
-        <motion.div 
-        className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
-          >
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">Pengenalan</h2>
-          <div className="w-16 h-1 bg-yellow-400 mx-auto mb-8"></div>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Perusahaan modern membutuhkan lebih dari sekadar kinerja. Dibutuhkan SDM yang berintegritas dan memiliki kematangan emosional. Majelis Perkantoran menawarkan solusi pembinaan yang aplikatif dan relevan dengan dunia kerja, mengubah momentum spiritual menjadi pendorong etos kerja dan loyalitas tim yang lebih solid.
-          </p>
-        </motion.div>
-      </section>
+        <section id="tentang" className="py-20 px-8 bg-white bg-pattern-light">
+  <motion.div
+    className="max-w-6xl mx-auto"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Mengapa Majelis Perkantoran?</h2>
+    <div className="w-16 h-1 bg-yellow-400 mx-auto mb-6"></div>
+    <p className="text-center text-gray-500 mb-16 max-w-2xl mx-auto">
+      Realita di lapangan menunjukkan krisis karakter dan spiritual karyawan yang semakin mengkhawatirkan
+    </p>
 
-      <section id="program" className="py-20 px-8 bg-gray-50 bg-pattern-light">
-        <motion.div 
-        className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 80 }}
+    {/* Data Statistik */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {[
+        {
+          angka: "77%",
+          judul: "Karyawan Burnout",
+          desc: "karyawan di seluruh dunia mengalami burnout di tempat kerja",
+          sumber: "Gallup State of Global Workplace 2023",
+          icon: "🔥"
+        },
+        {
+          angka: "1 dari 4",
+          judul: "Krisis Mental",
+          desc: "karyawan mengalami gejala burnout dan stres berat yang mempengaruhi produktivitas",
+          sumber: "McKinsey Health Institute 2023",
+          icon: "⚠️"
+        },
+        {
+          angka: "40%",
+          judul: "Stres Kerja Meningkat",
+          desc: "peningkatan tingkat stres kerja karyawan Indonesia pasca pandemi",
+          sumber: "BPS Indonesia 2023",
+          icon: "📈"
+        },
+        {
+          angka: "21%",
+          judul: "Peningkatan Produktivitas",
+          desc: "peningkatan produktivitas pada perusahaan dengan program pengembangan karakter karyawan",
+          sumber: "Harvard Business Review",
+          icon: "✅"
+        },
+        {
+          angka: "58%",
+          judul: "Loyalitas Lebih Tinggi",
+          desc: "karyawan beretika kuat menunjukkan loyalitas lebih tinggi dan turnover lebih rendah",
+          sumber: "SHRM 2023",
+          icon: "💪"
+        },
+        {
+          angka: "$1T",
+          judul: "Kerugian Produktivitas",
+          desc: "kerugian produktivitas global per tahun akibat stres kerja dan krisis karakter karyawan",
+          sumber: "McKinsey Global Institute",
+          icon: "💸"
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all duration-300"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
-          >
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Spesifikasi Program</h2>
-          <div className="w-16 h-1 bg-yellow-400 mx-auto mb-12"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programs.map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition hover:-translate-y-1">
-                <div className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-yellow-400 font-bold">{i + 1}</span>
-                </div>
-                <h3 className="font-bold text-blue-900 text-lg mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -4 }}
+        >
+          <div className="text-3xl mb-3">{item.icon}</div>
+          <p className="text-4xl font-bold text-blue-900 mb-1">{item.angka}</p>
+          <p className="font-bold text-gray-800 mb-2">{item.judul}</p>
+          <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+          <p className="text-xs text-yellow-600 font-medium border-t border-gray-100 pt-2">📊 {item.sumber}</p>
         </motion.div>
-      </section>
+      ))}
+    </div>
+
+    {/* Solusi */}
+    <div className="bg-blue-900 rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
+      </div>
+      <div className="relative z-10">
+        <p className="text-yellow-400 text-sm font-semibold uppercase tracking-widest mb-4">Solusi Kami</p>
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">Majelis Perkantoran Hadir Sebagai Solusi</h3>
+        <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
+          Program pembinaan islami yang aplikatif dan relevan dengan dunia kerja. Mengubah momentum spiritual menjadi pendorong etos kerja, integritas, dan loyalitas tim yang lebih solid — tanpa mengganggu produktivitas.
+        </p>
+        <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">
+          Daftarkan Kantor Anda Sekarang
+        </a>
+      </div>
+    </div>
+  </motion.div>
+</section>
 
       <section id="keunggulan" className="py-20 px-8 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 60%, #1e40af 100%)'}}>
         <div className="absolute inset-0 pointer-events-none">
