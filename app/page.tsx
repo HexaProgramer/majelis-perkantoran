@@ -50,10 +50,12 @@ export default function Home() {
   ];
 
   const klien = [
-    "Sono Coffee Grup", "Arafa Hijab", "PT. Kujang Marinas Utama", "Gudang Steak",
-    "Toko Maheer", "SDIT Annadwah", "FKPQ Kec. Cisaat", "Sukabumi Football Academy",
-    "BC HNI Sukabumi 1", "WestSteel", "PD. Sari Gandum Sejahtera", "Regu Kancil",
-  ];
+  "Sono Coffee Grup", "Arafa Hijab", "PT. Kujang Marinas Utama", "Gudang Steak",
+  "Toko Maheer", "SDIT Annadwah", "FKPQ Kec. Cisaat", "Sukabumi Football Academy",
+  "BC HNI Sukabumi 1", "WestSteel", "PD. Sari Gandum Sejahtera", "Regu Kancil",
+  "Hahsa Atelier", "YLPI Ibadurrahman", "HZA Production",
+  "Masjid Nurul Islam",
+];
 
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
@@ -145,7 +147,7 @@ export default function Home() {
     viewport={{ once: true }}
   >
     {[
-      { angka: "12+", label: "Mitra Perusahaan" },
+      { angka: "16+", label: "Mitra Perusahaan" },
       { angka: "6", label: "Pengajar Ahli" },
       { angka: "5", label: "Program Unggulan" },
       { angka: "100+", label: "Peserta Terbina" },
@@ -378,7 +380,7 @@ export default function Home() {
           >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Profil Pengajar</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
-          <p className="text-center text-gray-500 mb-12">Asatidzah berkompeten untuk menjamin standar pembelajaran yang inspiratif dan berkualitas</p>
+          <p className="text-center text-gray-500 mb-12">Asatidz & Asatidzah berkompeten untuk menjamin standar pembelajaran yang inspiratif dan berkualitas</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {pengajar.map((name, i) => (
               <div key={i} className="text-center">
@@ -463,7 +465,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-center text-blue-900 font-bold text-xl mb-8">Dipercaya oleh 12+ Perusahaan</p>
+          <p className="text-center text-blue-900 font-bold text-xl mb-8">Dipercaya oleh 16+ Perusahaan</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {klien.map((nama, i) => (
               <motion.div
