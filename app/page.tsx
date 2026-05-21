@@ -45,9 +45,9 @@ export default function Home() {
   ];
 
   const pengajar = [
-    "Ust. Muhammad Ilham", "Ust. Auliya Bil Allafa", "Ust. Ryan Alfatih",
-    "Ustadz Agung Gunawan", "Ustadzah Ai", "Ustadzah Nadia",
-  ];
+  "Ustaz Muhammad Ilham", "Ustaz Auliya Bil Allafa", "Ustaz Ryan Alfatih",
+  "Ustaz Agung Gunawan", "Ustazah Ai", "Ustazah Nadia",
+];
 
   const klien = [
   "Sono Coffee Grup", "Arafa Hijab", "PT. Kujang Marinas Utama", "Gudang Steak",
@@ -140,7 +140,7 @@ export default function Home() {
   </div>
 
   <motion.div
-    className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-blue-700 pt-12 relative z-10"
+    className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto pt-12 relative z-10"
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.3 }}
@@ -294,10 +294,10 @@ export default function Home() {
         },
         {
           no: "03",
-          title: "Kajian Tematik Perkantoran",
-          desc: "Pembahasan isu kerja harian dari sudut pandang syariat Islam: etos kerja, kejujuran, manajemen waktu.",
-          icon: "💼"
-        },
+          title: "Sirah Nabawiyah",
+          desc: "Kajian kepemimpinan dan etos kerja Rasulullah yang relevan dengan dunia profesional modern.",
+          icon: "🕌"
+          },
         {
           no: "04",
           title: "Forum Group Discussion",
@@ -488,9 +488,6 @@ export default function Home() {
       </section>
 
       <section id="kontak" className="text-white py-20 px-8 relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 50%, #1e40af 100%)'}}>
-        <div className="absolute inset-0 pointer-events-none">
-  <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
-</div>
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
     <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full" style={{background: 'radial-gradient(circle, rgba(250,204,21,0.06) 0%, transparent 70%)'}}></div>
     <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
