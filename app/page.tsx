@@ -185,65 +185,74 @@ export default function Home() {
     {/* Data Statistik */}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       {[
-        {
-          angka: "77%",
-          judul: "Karyawan Burnout",
-          desc: "karyawan di seluruh dunia mengalami burnout di tempat kerja",
-          sumber: "Gallup State of Global Workplace 2023",
-          icon: "🔥"
-        },
-        {
-          angka: "1 dari 4",
-          judul: "Krisis Mental",
-          desc: "karyawan mengalami gejala burnout dan stres berat yang mempengaruhi produktivitas",
-          sumber: "McKinsey Health Institute 2023",
-          icon: "⚠️"
-        },
-        {
-          angka: "40%",
-          judul: "Stres Kerja Meningkat",
-          desc: "peningkatan tingkat stres kerja karyawan Indonesia pasca pandemi",
-          sumber: "BPS Indonesia 2023",
-          icon: "📈"
-        },
-        {
-          angka: "21%",
-          judul: "Peningkatan Produktivitas",
-          desc: "peningkatan produktivitas pada perusahaan dengan program pengembangan karakter karyawan",
-          sumber: "Harvard Business Review",
-          icon: "✅"
-        },
-        {
-          angka: "58%",
-          judul: "Loyalitas Lebih Tinggi",
-          desc: "karyawan beretika kuat menunjukkan loyalitas lebih tinggi dan turnover lebih rendah",
-          sumber: "SHRM 2023",
-          icon: "💪"
-        },
-        {
-          angka: "$1T",
-          judul: "Kerugian Produktivitas",
-          desc: "kerugian produktivitas global per tahun akibat stres kerja dan krisis karakter karyawan",
-          sumber: "McKinsey Global Institute",
-          icon: "💸"
-        },
-      ].map((item, i) => (
-        <motion.div
-          key={i}
-          className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all duration-300"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4 }}
-        >
-          <div className="text-3xl mb-3">{item.icon}</div>
-          <p className="text-4xl font-bold text-blue-900 mb-1">{item.angka}</p>
-          <p className="font-bold text-gray-800 mb-2">{item.judul}</p>
-          <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
-          <p className="text-xs text-yellow-600 font-medium border-t border-gray-100 pt-2">📊 {item.sumber}</p>
-        </motion.div>
-      ))}
+  {
+    angka: "77%",
+    judul: "Karyawan Burnout",
+    desc: "karyawan di seluruh dunia mengalami burnout di tempat kerja",
+    sumber: "Gallup State of Global Workplace 2023",
+    icon: "🔥",
+    link: "https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx"
+  },
+  {
+    angka: "1 dari 4",
+    judul: "Krisis Mental",
+    desc: "karyawan mengalami gejala burnout dan stres berat yang mempengaruhi produktivitas",
+    sumber: "McKinsey Health Institute 2023",
+    icon: "⚠️",
+    link: "https://www.mckinsey.com/mhi/our-insights/reframing-employee-health"
+  },
+  {
+    angka: "40%",
+    judul: "Stres Kerja Meningkat",
+    desc: "peningkatan tingkat stres kerja karyawan Indonesia pasca pandemi",
+    sumber: "BPS Indonesia 2023",
+    icon: "📈",
+    link: "https://www.bps.go.id"
+  },
+  {
+    angka: "21%",
+    judul: "Peningkatan Produktivitas",
+    desc: "peningkatan produktivitas pada perusahaan dengan program pengembangan karakter karyawan",
+    sumber: "Harvard Business Review",
+    icon: "✅",
+    link: "https://hbr.org"
+  },
+  {
+    angka: "58%",
+    judul: "Loyalitas Lebih Tinggi",
+    desc: "karyawan beretika kuat menunjukkan loyalitas lebih tinggi dan turnover lebih rendah",
+    sumber: "SHRM 2023",
+    icon: "💪",
+    link: "https://www.shrm.org"
+  },
+  {
+    angka: "$1T",
+    judul: "Kerugian Produktivitas",
+    desc: "kerugian produktivitas global per tahun akibat stres kerja dan krisis karakter karyawan",
+    sumber: "McKinsey Global Institute",
+    icon: "💸",
+    link: "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights"
+  },
+].map((item, i) => (
+  <motion.a
+    key={i}
+    href={item.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-200 transition-all duration-300 block cursor-pointer"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: i * 0.1 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -4 }}
+  >
+    <div className="text-3xl mb-3">{item.icon}</div>
+    <p className="text-4xl font-bold text-blue-900 mb-1">{item.angka}</p>
+    <p className="font-bold text-gray-800 mb-2">{item.judul}</p>
+    <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+    <p className="text-xs text-yellow-600 font-medium border-t border-gray-100 pt-2">📊 {item.sumber} ↗</p>
+  </motion.a>
+))}
     </div>
 
     {/* Solusi */}
