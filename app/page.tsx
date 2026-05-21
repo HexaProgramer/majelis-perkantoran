@@ -30,11 +30,12 @@ export default function Home() {
   };
 
   const programs = [
-    { title: "Islamic Character Building", desc: "Pembinaan mentalitas kerja berbasis nilai Islam: integritas, amanah, disiplin, dan tanggung jawab." },
-    { title: "Tahsin Al-Quran", desc: "Standarisasi bacaan Al-Quran bagi karyawan sesuai makharijul huruf dan tajwid." },
-    { title: "Kajian Tematik Perkantoran", desc: "Pembahasan isu kerja harian dari sudut pandang syariat Islam." },
-    { title: "Sirah Nabawiyah", desc: "Kajian kepemimpinan Rasulullah yang relevan dengan dunia profesional." },
-  ];
+  { title: "Islamic Character Building", desc: "Pembinaan mentalitas kerja berbasis nilai Islam: integritas, amanah, disiplin, dan tanggung jawab." },
+  { title: "Tahsin Al-Quran", desc: "Standarisasi bacaan Al-Quran bagi karyawan sesuai makharijul huruf dan tajwid." },
+  { title: "Kajian Tematik Perkantoran", desc: "Pembahasan isu kerja harian dari sudut pandang syariat Islam." },
+  { title: "Forum Group Discussion", desc: "Diskusi kelompok interaktif membahas solusi islami atas tantangan nyata di lingkungan kerja." },
+  { title: "Kajian Eksekutif", desc: "Program khusus untuk level manajerial dan eksekutif dalam membangun kepemimpinan berbasis nilai Islam." },
+];
 
   const keunggulan = [
     { title: "Pengajar Berkompeten", desc: "Dibimbing pengajar ahli dengan kualifikasi agama mumpuni dan pemahaman dunia profesional." },
@@ -146,7 +147,7 @@ export default function Home() {
     {[
       { angka: "12+", label: "Mitra Perusahaan" },
       { angka: "6", label: "Pengajar Ahli" },
-      { angka: "4", label: "Program Unggulan" },
+      { angka: "5", label: "Program Unggulan" },
       { angka: "100+", label: "Peserta Terbina" },
     ].map((item, i) => (
       <motion.div
@@ -258,6 +259,73 @@ export default function Home() {
           Daftarkan Kantor Anda Sekarang
         </a>
       </div>
+    </div>
+  </motion.div>
+</section>
+
+<section id="program" className="py-20 px-8 bg-gray-50">
+  <motion.div
+    className="max-w-6xl mx-auto"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Spesifikasi Program</h2>
+    <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
+    <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
+      Program tersedia dalam pilihan paket maupun satuan, disesuaikan dengan kebutuhan perusahaan
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          no: "01",
+          title: "Islamic Character Building",
+          desc: "Pembinaan mentalitas kerja berbasis nilai Islam: integritas, amanah, disiplin, dan tanggung jawab.",
+          icon: "🌟"
+        },
+        {
+          no: "02",
+          title: "Tahsin Al-Quran",
+          desc: "Standarisasi bacaan Al-Quran bagi karyawan sesuai makharijul huruf dan tajwid.",
+          icon: "📖"
+        },
+        {
+          no: "03",
+          title: "Kajian Tematik Perkantoran",
+          desc: "Pembahasan isu kerja harian dari sudut pandang syariat Islam: etos kerja, kejujuran, manajemen waktu.",
+          icon: "💼"
+        },
+        {
+          no: "04",
+          title: "Forum Group Discussion",
+          desc: "Diskusi kelompok interaktif membahas solusi islami atas tantangan nyata di lingkungan kerja.",
+          icon: "🗣️"
+        },
+        {
+          no: "05",
+          title: "Kajian Eksekutif",
+          desc: "Program khusus untuk level manajerial dan eksekutif dalam membangun kepemimpinan berbasis nilai Islam.",
+          icon: "👔"
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition hover:-translate-y-1 relative overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute top-4 right-4 text-gray-100 font-bold text-5xl">{item.no}</div>
+          <div className="text-3xl mb-4">{item.icon}</div>
+          <div className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center mb-4">
+            <span className="text-yellow-400 font-bold text-sm">{item.no}</span>
+          </div>
+          <h3 className="font-bold text-blue-900 text-lg mb-3">{item.title}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+        </motion.div>
+      ))}
     </div>
   </motion.div>
 </section>
