@@ -380,7 +380,7 @@ export default function Home() {
           >
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-4">Profil Pengajar</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
-          <p className="text-center text-gray-500 mb-12">Asatidz & Asatidzah berkompeten untuk menjamin standar pembelajaran yang inspiratif dan berkualitas</p>
+          <p className="text-center text-gray-500 mb-12">Asatiz & Asatizah berkompeten untuk menjamin standar pembelajaran yang inspiratif dan berkualitas</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {pengajar.map((name, i) => (
               <div key={i} className="text-center">
