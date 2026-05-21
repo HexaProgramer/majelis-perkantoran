@@ -57,7 +57,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
 
-<nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
+<nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md relative overflow-hidden">
+  <div className="absolute inset-0 pointer-events-none">
+  <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
+</div>
   <div className="font-bold text-lg tracking-wide" style={{fontFamily: 'var(--font-playfair)'}}>
     Majelis Perkantoran
   </div>
@@ -101,47 +104,68 @@ export default function Home() {
   </AnimatePresence>
 </nav>
 
-      <section className="bg-blue-900 text-white text-center py-32 px-8">
-        <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-widest">Masjid Pendidikan Shalahuddin</p>
-        <h1 className="text-6xl font-bold mb-6">Majelis Perkantoran</h1>
-        <p className="text-2xl text-yellow-300 mb-6 italic">Menguatkan Nilai, Menjaga Profesionalisme di Dunia Kerja</p>
-        <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
-          Membangun karakter islami dan meningkatkan kualitas spiritual karyawan tanpa mengganggu produktivitas kerja.
-        </p>
-        <div className="mt-10 flex gap-4 justify-center">
-          <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">Daftarkan Kantor Anda</a>
-          <a href="#program" className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-900 transition text-lg">Lihat Program</a>
-        </div>
-        <motion.div 
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-blue-700 pt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {[
-            { angka: "12+", label: "Mitra Perusahaan" },
-            { angka: "6", label: "Pengajar Ahli" },
-            { angka: "4", label: "Program Unggulan" },
-            { angka: "100+", label: "Peserta Terbina" },
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-5xl font-bold text-yellow-400 drop-shadow-lg">{item.angka}</p>
-              <div className="w-8 h-0.5 bg-yellow-400 mx-auto my-2"></div>
-              <p className="text-gray-300 text-sm uppercase tracking-wider">{item.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+<section  className="text-white text-center py-32 px-8 relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 50%, #1d4ed8 100%)'}}>
+  <div className="absolute inset-0 pointer-events-none">
+  <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
+</div>
+  {/* Background decorations */}
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-yellow-400 opacity-10"></div>
+    <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full border border-yellow-400 opacity-10"></div>
+    <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border border-white opacity-5"></div>
+    <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400 rounded-full opacity-5 blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+    <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hex" width="56" height="100" patternUnits="userSpaceOnUse">
+          <path d="M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V18L28 2 2 18v30l26 15z" fill="none" stroke="rgba(250,204,21,1)" strokeWidth="0.8"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hex)"/>
+    </svg>
+  </div>
 
-      <section id="tentang" className="py-20 px-8 bg-white">
+  <p className="text-yellow-400 text-sm font-semibold mb-4 uppercase tracking-widest relative z-10">Masjid Pendidikan Shalahuddin</p>
+  <h1 className="text-6xl font-bold mb-6 relative z-10">Majelis Perkantoran</h1>
+  <p className="text-2xl text-yellow-300 mb-6 italic relative z-10">Menguatkan Nilai, Menjaga Profesionalisme di Dunia Kerja</p>
+  <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed relative z-10">
+    Membangun karakter islami dan meningkatkan kualitas spiritual karyawan tanpa mengganggu produktivitas kerja.
+  </p>
+  <div className="mt-10 flex gap-4 justify-center flex-wrap relative z-10">
+    <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">Daftarkan Kantor Anda</a>
+    <a href="#program" className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-900 transition text-lg">Lihat Program</a>
+  </div>
+
+  <motion.div
+    className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-blue-700 pt-12 relative z-10"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.3 }}
+    viewport={{ once: true }}
+  >
+    {[
+      { angka: "12+", label: "Mitra Perusahaan" },
+      { angka: "6", label: "Pengajar Ahli" },
+      { angka: "4", label: "Program Unggulan" },
+      { angka: "100+", label: "Peserta Terbina" },
+    ].map((item, i) => (
+      <motion.div
+        key={i}
+        className="text-center"
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: i * 0.15 }}
+        viewport={{ once: true }}
+      >
+        <p className="text-5xl font-bold text-yellow-400 drop-shadow-lg">{item.angka}</p>
+        <div className="w-8 h-0.5 bg-yellow-400 mx-auto my-2"></div>
+        <p className="text-gray-300 text-sm uppercase tracking-wider">{item.label}</p>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
+      <section id="tentang" className="py-20 px-8 bg-white bg-pattern-light">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 80 }}
@@ -157,7 +181,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="program" className="py-20 px-8 bg-gray-50">
+      <section id="program" className="py-20 px-8 bg-gray-50 bg-pattern-light">
         <motion.div 
         className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 80 }}
@@ -181,7 +205,21 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="keunggulan" className="py-20 px-8 bg-blue-900 text-white">
+      <section id="keunggulan" className="py-20 px-8 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 60%, #1e40af 100%)'}}>
+        <div className="absolute inset-0 pointer-events-none">
+  <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
+</div>
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full" style={{background: 'radial-gradient(circle, rgba(250,204,21,0.06) 0%, transparent 70%)'}}></div>
+    <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hex2" width="56" height="100" patternUnits="userSpaceOnUse">
+          <path d="M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V18L28 2 2 18v30l26 15z" fill="none" stroke="rgba(250,204,21,1)" strokeWidth="0.8"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hex2)"/>
+    </svg>
+  </div>
         <motion.div 
         className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 80 }}
@@ -322,7 +360,21 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="kontak" className="bg-blue-900 text-white py-20 px-8">
+      <section id="kontak" className="text-white py-20 px-8 relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 50%, #1e40af 100%)'}}>
+        <div className="absolute inset-0 pointer-events-none">
+  <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
+</div>
+  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full" style={{background: 'radial-gradient(circle, rgba(250,204,21,0.06) 0%, transparent 70%)'}}></div>
+    <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hex3" width="56" height="100" patternUnits="userSpaceOnUse">
+          <path d="M28 66L0 50V16L28 0l28 16v34L28 66zm0-2l26-15V18L28 2 2 18v30l26 15z" fill="none" stroke="rgba(250,204,21,1)" strokeWidth="0.8"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hex3)"/>
+    </svg>
+  </div>
         <motion.div 
         className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 80 }}
