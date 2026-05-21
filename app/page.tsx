@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
 
-<nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md relative overflow-hidden">
+<nav className="bg-blue-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-md relative">
   <div className="absolute inset-0 pointer-events-none">
   <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
 </div>
@@ -77,7 +77,7 @@ export default function Home() {
     <a href="#kontak" className="hover:text-yellow-400 transition">Kontak</a>
   </div>
 
-  <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)}>
+  <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => { setMenuOpen(!menuOpen); console.log('menu clicked', !menuOpen); }}>
     <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
     <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
     <span className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
@@ -90,15 +90,16 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className="absolute top-16 left-0 right-0 bg-blue-900 flex flex-col items-center gap-4 py-6 md:hidden shadow-lg"
+        className="absolute top-16 left-0 right-0 flex flex-col items-center gap-4 py-6 md:hidden shadow-lg z-50" style={{background: 'linear-gradient(135deg, #0f2460 0%, #1e3a8a 50%, #1d4ed8 100%)'}}
       >
           {['tentang', 'program', 'keunggulan', 'pengajar', 'portofolio', 'kontak'].map((item) => (
           
             <a key={item}
             href={`#${item}`}
-            className="capitalize hover:text-yellow-400 transition text-lg"
+            className="capitalize hover:text-yellow-400 transition text-lg text-white"
             onClick={() => setMenuOpen(false)}
           >
+            
             {item}
           </a>
         ))} 
