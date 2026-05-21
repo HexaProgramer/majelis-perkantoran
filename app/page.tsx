@@ -267,8 +267,8 @@ export default function Home() {
         <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
           Program pembinaan islami yang aplikatif dan relevan dengan dunia kerja. Mengubah momentum spiritual menjadi pendorong etos kerja, integritas, dan loyalitas tim yang lebih solid — tanpa mengganggu produktivitas.
         </p>
-        <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition text-lg">
-          Daftarkan Kantor Anda Sekarang
+        <a href="#kontak" className="bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-full hover:bg-yellow-300 transition text-base md:text-lg md:px-8 md:py-4 inline-block">
+         Daftarkan Kantor Anda Sekarang
         </a>
       </div>
     </div>
