@@ -65,7 +65,7 @@ export default function Home() {
 </div>
 <div className="flex items-center gap-2">
     <img
-      src="/hanima-logo.png"
+      src="/hanima-logo.PNG"
       alt="Hanima Foundation"
       className="h-7 md:h-8 w-auto object-contain"
     />
