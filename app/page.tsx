@@ -67,7 +67,7 @@ export default function Home() {
     <img
       src="/hanima-logo.png"
       alt="Hanima Foundation"
-      className="h-14 md:h-16 w-auto object-contain max-w-[100%]"
+      className="h-7 md:h-8 w-auto object-contain"
     />
   </div>
 
