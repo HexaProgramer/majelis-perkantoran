@@ -8,7 +8,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [carouselPaused, setCarouselPaused] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -64,8 +63,12 @@ export default function Home() {
   <div className="absolute inset-0 pointer-events-none">
   <img src="/wave-pattern.svg" alt="" className="w-full h-full object-cover opacity-100"/>
 </div>
-  <div className="font-bold text-lg tracking-wide" style={{fontFamily: 'var(--font-playfair)'}}>
-    Majelis Perkantoran
+<div className="flex items-center gap-2">
+    <img
+      src="/hanima-logo.png"
+      alt="Hanima Foundation"
+      className="h-14 md:h-16 w-auto object-contain max-w-[100%]"
+    />
   </div>
 
   <div className="hidden md:flex gap-6 text-sm font-medium">
