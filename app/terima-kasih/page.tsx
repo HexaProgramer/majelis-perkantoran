@@ -16,7 +16,8 @@ export default function TerimaKasih() {
           <p className="text-yellow-400 font-bold mb-2">Butuh respon lebih cepat?</p>
           <p className="text-gray-300 text-sm">Hubungi kami langsung via WhatsApp</p>
           
-           <a href="https://wa.me/628119201821"
+           <a href="https://wa.me/6281298662017"
+          
             target="_blank"
             className="mt-4 inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-400 transition"
           >
