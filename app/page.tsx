@@ -599,7 +599,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-blue-950 text-gray-400 text-center py-6 text-sm">
-        <p>Powered by MIK — Hanima Foundation</p>
+        <p>Powered by MIK — Masjid Pendidikan Shalahuddinx</p>
         <p className="mt-1">Support by Hanima & Dompet Dhuafa</p>
       </footer>
       {/* WhatsApp Floating Button */}
