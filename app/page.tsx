@@ -521,9 +521,9 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
           >
-          <h2 className="text-3xl font-bold text-center mb-4">Segera Daftarkan Kantor Anda!</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Bangun Kantor yang Islami Bersama Kami</h2>
           <div className="w-16 h-1 bg-yellow-400 mx-auto mb-6"></div>
-          <p className="text-center text-gray-300 mb-12 text-lg">Hubungi kami atau isi form di bawah ini</p>
+          <p className="text-center text-gray-300 mb-12 text-lg">Hubungi kami dan tonton testimoni peserta program di bawah ini</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-4">
               <div className="bg-blue-800 rounded-xl p-4 flex items-center gap-4">
