@@ -1,6 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+// Ganti dengan link YouTube/Drive video testimoni yang sebenarnya nanti
+const TESTIMONI_VIDEO_URL = "https://drive.google.com/file/d/1QD2RlgZ4GGMv49v6PJoYxGREc23TpvNO/view?usp=sharing";
+const TESTIMONI_VIDEO_EMBED_URL = "https://drive.google.com/file/d/1QD2RlgZ4GGMv49v6PJoYxGREc23TpvNO/view?usp=sharing";
 
 export default function Home() {
   const [form, setForm] = useState({ nama: '', whatsapp: '', email: '', pesan: '' });
@@ -550,49 +553,33 @@ export default function Home() {
             </a>
             </div>
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="text"
-                placeholder="Nama Perusahaan / Anda"
-                value={form.nama}
-                onChange={e => setForm({...form, nama: e.target.value})}
-                required
-                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <input
-                type="text"
-                placeholder="Nomor Whatsap"
-                value={form.whatsapp}
-                onChange={e => setForm({...form, whatsapp: e.target.value})}
-                required
-                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                value={form.email}
-                onChange={e => setForm({...form, email: e.target.value})}
-                required
-                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <textarea
-                placeholder="Pesan / Pertanyaan"
-                value={form.pesan}
-                onChange={e => setForm({...form, pesan: e.target.value})}
-                required
-                rows={4}
-                className="bg-blue-800 text-white placeholder-blue-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-400 resize-none"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-yellow-400 text-blue-900 font-bold py-3 rounded-xl hover:bg-yellow-300 transition disabled:opacity-50"
+<div className="flex flex-col items-center text-center gap-5 bg-blue-800 rounded-2xl p-6 md:p-8">
+              <div>
+                <h3 className="text-xl font-bold mb-2">Lihat Testimoni Program</h3>
+                <p className="text-blue-200 text-sm max-w-sm">
+                  Scan QR code di bawah ini untuk menonton video testimoni dari peserta program kami
+                </p>
+              </div>
+
+              <div className="bg-white p-4 rounded-xl shadow-lg">
+                <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(TESTIMONI_VIDEO_URL)}`}
+                  alt="QR Code Testimoni Program"
+                  width={200}
+                  height={200}
+                  className="block"
+                />
+              </div>
+
+              <a
+                href={TESTIMONI_VIDEO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-yellow-400 underline text-sm hover:text-yellow-300 transition"
               >
-                {loading ? 'Mengirim...' : 'Kirim Pesan'}
-              </button>
-              {status === 'success' && <p className="text-green-400 text-center">Pesan berhasil dikirim!</p>}
-              {status === 'error' && <p className="text-red-400 text-center">Gagal mengirim, coba lagi.</p>}
-            </form>
+                atau klik di sini untuk buka langsung
+              </a>
+            </div>
           </div>
         </motion.div>
       </section>
